@@ -1,5 +1,5 @@
 """
-Patent Guard v3.0 - FAISS + BM25 Hybrid Vector Database
+Short-Cut v3.0 - FAISS + BM25 Hybrid Vector Database
 ========================================================
 In-memory vector database with Hybrid Search (RRF Fusion).
 
@@ -9,7 +9,7 @@ Features:
 - RRF (Reciprocal Rank Fusion) for result merging
 - Zero-latency startup with pre-computed index
 
-Author: Patent Guard Team
+Author: Team 뀨💕
 License: MIT
 """
 
@@ -1042,7 +1042,7 @@ async def main():
     )
     
     print("\n" + "=" * 70)
-    print("🛡️  Patent Guard v3.0 - Hybrid Search Test")
+    print("⚡ 쇼특허 (Short-Cut) v3.0 - Hybrid Search Test")
     print("=" * 70)
     
     if not FAISS_AVAILABLE:

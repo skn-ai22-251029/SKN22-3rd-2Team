@@ -1,5 +1,5 @@
 """
-Patent Guard v3.0 - Configuration Module (Antigravity Edition)
+쇼특허(Short-Cut) - Configuration Module (Antigravity Edition)
 ================================================================
 Lightweight configuration for OpenAI API + Pinecone Serverless architecture.
 

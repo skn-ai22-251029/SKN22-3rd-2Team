@@ -1,5 +1,5 @@
 """
-Patent Guard v2.0 - Main Pipeline Orchestrator (Antigravity Edition)
+Short-Cut v3.0 - Main Pipeline Orchestrator (Antigravity Edition)
 =====================================================================
 Orchestrates the complete patent data pipeline with FAISS indexing.
 
@@ -11,7 +11,7 @@ Pipeline stages:
 5. FAISS index building (Pre-computation)
 6. Self-RAG training data generation (optional)
 
-Author: Patent Guard Team
+Author: Team 뀨💕
 License: MIT
 """
 
@@ -396,7 +396,7 @@ async def run_full_pipeline(
     skip_stages = skip_stages or []
     
     print("\n" + "=" * 70)
-    print("🛡️  Patent Guard v2.0 - Full Pipeline (Antigravity Mode)")
+    print("⚡ 쇼특허 (Short-Cut) v3.0 - Full Pipeline (Antigravity Mode)")
     print("=" * 70)
     
     # Update config from environment
@@ -495,7 +495,7 @@ async def main():
     import argparse
     
     parser = argparse.ArgumentParser(
-        description="Patent Guard v2.0 - Patent Data Pipeline (Antigravity Mode)"
+        description="Short-Cut v3.0 - Patent Data Pipeline (Antigravity Mode)"
     )
     
     parser.add_argument(

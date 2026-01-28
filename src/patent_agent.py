@@ -1,5 +1,5 @@
 """
-Patent Guard v3.0 - Self-RAG Patent Agent with Hybrid Search & Streaming
+Short-Cut v3.0 - Self-RAG Patent Agent with Hybrid Search & Streaming
 ==========================================================================
 Advanced RAG pipeline with HyDE, Hybrid Search (RRF), Streaming, and CoT Analysis.
 
@@ -9,7 +9,7 @@ Features:
 3. LLM Streaming Response - Real-time analysis output
 4. Critical CoT Analysis - Detailed similarity/infringement/avoidance analysis
 
-Author: Patent Guard Team
+Author: Team 뀨💕
 License: MIT
 """
 
@@ -708,7 +708,7 @@ JSON 형식으로 응답:
             stream: Stream analysis output (not applicable for dict output)
         """
         print("\n" + "=" * 70)
-        print("🛡️  Patent Guard v3.0 - Self-RAG Analysis (Hybrid + Streaming)")
+        print("⚡ 쇼특허 (Short-Cut) v3.0 - Self-RAG Analysis (Hybrid + Streaming)")
         print("=" * 70)
         
         print(f"\n📝 User Idea: {user_idea[:100]}...")
@@ -784,7 +784,7 @@ JSON 형식으로 응답:
 async def main():
     """Interactive CLI for patent analysis."""
     print("\n" + "=" * 70)
-    print("🛡️  Patent Guard v3.0 - Self-RAG Patent Agent")
+    print("⚡ 쇼특허 (Short-Cut) v3.0 - Self-RAG Patent Agent")
     print("    Hybrid Search + Streaming Edition")
     print("=" * 70)
     print("\n특허 분석을 위한 아이디어를 입력하세요.")
