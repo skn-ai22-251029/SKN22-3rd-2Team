@@ -13,7 +13,7 @@
 | 기능 | 설명 |
 |------|------|
 | **HyDE** | 사용자 아이디어를 가상 특허 청구항으로 변환하여 검색 품질 향상 |
-| **Hybrid Search** | Pinecone (Dense) + BM25 (Sparse) + RRF 융합 검색 |
+| **Hybrid Search** | Pinecone (Dense) + Local BM25 (Sparse) + RRF 융합 검색 |
 | **Serverless DB** | Pinecone 벡터 DB를 활용한 확장성 있는 데이터 관리 |
 | **LLM Streaming** | 실시간 분석 결과 출력 (0초 체감 대기시간) |
 | **4-Level Parser** | 다국어 청구항 파싱 (US/EP/KR 형식 지원) |

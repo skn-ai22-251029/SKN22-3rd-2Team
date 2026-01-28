@@ -111,7 +111,7 @@ Self-RAG 파이프라인 + Streaming 분석 엔진 + **DeepEval QA**
 
 ### 3.2 Vector Database (`vector_db.py`)
 
-하이브리드 검색 엔진 (Pinecone + BM25 + RRF)
+하이브리드 검색 엔진 (Pinecone Dense + Local BM25 Sparse + RRF)
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -121,7 +121,7 @@ Self-RAG 파이프라인 + Streaming 분석 엔진 + **DeepEval QA**
 │  ┌─────────────────────────────┐  ┌─────────────────────────────┐   │
 │  │     Pinecone (Dense)        │  │       BM25 (Sparse)         │   │
 │  │  ┌───────────────────────┐  │  │  ┌───────────────────────┐  │   │
-│  │  │ Serverless Index      │  │  │  │ rank_bm25 (Okapi)     │  │   │
+│  │  │ Serverless Index      │  │  │  │ Local Index (pkl)     │  │   │
 │  │  │ Integrated Metadata   │  │  │  │ Keyword Matching      │  │   │
 │  │  │ Cosine Similarity     │  │  │  │ TF-IDF based          │  │   │
 │  │  │ 20,664 vectors        │  │  │  │ 20,664 documents      │  │   │
