@@ -83,12 +83,17 @@ def render_patent_map(result: dict):
             "📗 단순 키워드 중복": "#a0a0a0"
         },
         title="✨ Premium Patent Landscape Analysis",
-        template="plotly_dark"
+        template="plotly_white"
     )
     
+    # Ivory background color (#fdfaf5) to match the app theme
+    ivory_bg = "#fdfaf5"
+    grid_color = "rgba(0,0,0,0.1)"
+    line_color = "rgba(0,0,0,0.2)"
+    
     # Add Quadrant Backgrounds/Annotations using shapes if possible, or just layout lines
-    fig.add_hline(y=0.5, line_width=1, line_dash="dot", line_color="rgba(255,255,255,0.2)")
-    fig.add_vline(x=0.5, line_width=1, line_dash="dot", line_color="rgba(255,255,255,0.2)")
+    fig.add_hline(y=0.5, line_width=1, line_dash="dot", line_color=line_color)
+    fig.add_vline(x=0.5, line_width=1, line_dash="dot", line_color=line_color)
     
     fig.update_layout(
         xaxis_title="🎯 기술적 정렬도 (Conceptual Alignment)",
@@ -97,16 +102,16 @@ def render_patent_map(result: dict):
         hovermode="closest",
         height=600,
         margin=dict(l=60, r=60, t=100, b=60),
-        plot_bgcolor="rgba(15,17,23,1)",
-        paper_bgcolor="rgba(15,17,23,1)",
-        xaxis=dict(range=[-0.1, 1.1], gridcolor="rgba(255,255,255,0.05)"),
-        yaxis=dict(range=[-0.1, 1.1], gridcolor="rgba(255,255,255,0.05)"),
-        font=dict(family="Pretendard, sans-serif", size=13)
+        plot_bgcolor=ivory_bg,
+        paper_bgcolor=ivory_bg,
+        xaxis=dict(range=[-0.1, 1.1], gridcolor=grid_color),
+        yaxis=dict(range=[-0.1, 1.1], gridcolor=grid_color),
+        font=dict(family="Pretendard, sans-serif", size=13, color="#1e1e1e")
     )
     
     # Add Quadrant Labels
     fig.add_annotation(x=0.85, y=0.9, text="<b>HIGH RISK ZONE</b>", showarrow=False, font=dict(color="#ff4b4b", size=14))
-    fig.add_annotation(x=0.15, y=0.9, text="Keyword Noise", showarrow=False, font=dict(color="#a0a0a0"))
+    fig.add_annotation(x=0.15, y=0.9, text="Keyword Noise", showarrow=False, font=dict(color="#7f8c8d"))
     fig.add_annotation(x=0.85, y=0.1, text="Conceptual Competitors", showarrow=False, font=dict(color="#6c5ce7"))
     
     st.plotly_chart(fig, use_container_width=True)

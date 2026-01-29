@@ -24,19 +24,8 @@ def render_sidebar(openai_api_key, db_client, db_stats):
         st.markdown("### Short-Cut v3.0")
         st.divider()
         
-        # Settings - Theme
-        st.markdown("### 🎨 테마 설정")
-        theme = st.radio(
-            "테마 선택",
-            ["🌙 다크 모드", "☀️ 라이트 모드"],
-            index=0,
-            horizontal=True,
-            label_visibility="collapsed"
-        )
-        is_dark_mode = theme == "🌙 다크 모드"
-        
-        # Apply theme CSS
-        apply_theme_css(is_dark_mode)
+        # Apply theme CSS (Hardcoded Ivory/Light)
+        apply_theme_css()
         
         st.divider()
         

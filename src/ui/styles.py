@@ -4,36 +4,56 @@ UI Styles and Theme Management.
 import streamlit as st
 
 def get_main_css() -> str:
-    """Get global CSS styles."""
+    """Get global CSS styles with Ivory/Light theme."""
     return """
 <style>
     /* Main container */
+    .stApp {
+        background-color: #fdfaf5; /* Ivory Background */
+        color: #1e1e1e;
+    }
+    
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
     
-    /* Metric cards with dynamic colors */
+    /* Text colors for light theme */
+    .stMarkdown, .stText, p, span, label { color: #1e1e1e !important; }
+    h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
+    
+    /* Sidebar styling */
+    section[data-testid="stSidebar"] {
+        background-color: #f0f2f6 !important;
+    }
+    section[data-testid="stSidebar"] * {
+        color: #1e1e1e !important;
+    }
+    
+    /* Metric cards with elegant light colors */
     .metric-low {
-        background: linear-gradient(135deg, #1a472a 0%, #2d5016 100%);
+        background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
         border-radius: 12px;
         padding: 1.5rem;
         text-align: center;
-        border: 1px solid #2d5016;
+        border: 1px solid #a5d6a7;
+        color: #2e7d32;
     }
     .metric-medium {
-        background: linear-gradient(135deg, #5c4a1f 0%, #6b5b1f 100%);
+        background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
         border-radius: 12px;
         padding: 1.5rem;
         text-align: center;
-        border: 1px solid #6b5b1f;
+        border: 1px solid #ffcc80;
+        color: #ef6c00;
     }
     .metric-high {
-        background: linear-gradient(135deg, #5c1a1a 0%, #6b1f1f 100%);
+        background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
         border-radius: 12px;
         padding: 1.5rem;
         text-align: center;
-        border: 1px solid #6b1f1f;
+        border: 1px solid #ef9a9a;
+        color: #c62828;
     }
     
     /* Risk badge */
@@ -47,13 +67,27 @@ def get_main_css() -> str:
     .risk-medium { background: #ffc107; color: black; }
     .risk-low { background: #28a745; color: white; }
     
-    /* Analysis section */
+    /* Analysis section - subtle ivory/grey */
     .analysis-section {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(0, 0, 0, 0.03);
         border-radius: 12px;
         padding: 1.5rem;
         margin: 1rem 0;
         border-left: 4px solid #4a90d9;
+        color: #1e1e1e;
+    }
+    
+    /* Input areas */
+    .stTextArea textarea { 
+        background-color: #ffffff !important; 
+        color: #1e1e1e !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .stButton > button {
+        background-color: #4a90d9 !important;
+        color: white !important;
+        border-radius: 8px;
     }
     
     /* Streaming text animation */
@@ -73,51 +107,12 @@ def get_main_css() -> str:
         text-align: center;
         padding: 1rem 0 2rem 0;
     }
-    
-    /* Sidebar */
-    .sidebar .sidebar-content {
-        padding: 1rem;
-    }
 </style>
 """
 
 
-def apply_theme_css(is_dark: bool):
-    """Apply dynamic theme CSS based on user selection."""
-    if is_dark:
-        theme_css = """
-        <style>
-            /* Dark Theme (default Streamlit dark) */
-            .stApp { background-color: #0e1117; }
-            .analysis-section { background: rgba(255, 255, 255, 0.05); }
-        </style>
-        """
-    else:
-        theme_css = """
-        <style>
-            /* Light Theme */
-            .stApp { background-color: #ffffff; color: #1e1e1e; }
-            .stMarkdown, .stText, p, span, label { color: #1e1e1e !important; }
-            h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
-            .analysis-section { 
-                background: rgba(0, 0, 0, 0.03); 
-                border-left: 4px solid #4a90d9;
-            }
-            .stTextArea textarea { 
-                background-color: #f8f9fa !important; 
-                color: #1e1e1e !important;
-            }
-            .stButton > button {
-                background-color: #4a90d9 !important;
-                color: white !important;
-            }
-            /* Sidebar light */
-            section[data-testid="stSidebar"] {
-                background-color: #f0f2f6 !important;
-            }
-            section[data-testid="stSidebar"] * {
-                color: #1e1e1e !important;
-            }
-        </style>
-        """
-    st.markdown(theme_css, unsafe_allow_html=True)
+def apply_theme_css():
+    """Apply hardcoded Light/Ivory theme CSS."""
+    # This function is now a placeholder or can be removed if not used elsewhere.
+    # The main CSS is handled by get_main_css() and st.markdown() in app.py.
+    pass
