@@ -100,8 +100,8 @@ def render_patent_map(result: dict):
         yaxis_title="🔍 분석 심도 (Analytical Depth)",
         legend_title="Risk & Value",
         hovermode="closest",
-        height=600,
-        margin=dict(l=60, r=60, t=100, b=60),
+        height=660, # Increased height to accommodate axis descriptions
+        margin=dict(l=60, r=60, t=100, b=120), # Increased bottom margin
         plot_bgcolor=ivory_bg,
         paper_bgcolor=ivory_bg,
         xaxis=dict(range=[-0.1, 1.1], gridcolor=grid_color),
@@ -109,18 +109,36 @@ def render_patent_map(result: dict):
         font=dict(family="Pretendard, sans-serif", size=13, color="#1e1e1e")
     )
     
+    # Add axis descriptions (sub-titles)
+    fig.add_annotation(
+        x=0.5, y=-0.15, xref="paper", yref="paper",
+        text="<b>X축: 기술적 정렬도</b> - 입력한 아이디어와 특허의 개념적/원리적 일치 정도 (우측일수록 위험)",
+        showarrow=False, font=dict(size=11, color="#555")
+    )
+    fig.add_annotation(
+        x=-0.1, y=0.5, xref="paper", yref="paper", textangle=-90,
+        text="<b>Y축: 분석 심도</b> - 특허 내용의 구체성 및 유사 데이터의 밀집도",
+        showarrow=False, font=dict(size=11, color="#555")
+    )
+    
     # Add Quadrant Labels
-    fig.add_annotation(x=0.85, y=0.9, text="<b>HIGH RISK ZONE</b>", showarrow=False, font=dict(color="#ff4b4b", size=14))
-    fig.add_annotation(x=0.15, y=0.9, text="Keyword Noise", showarrow=False, font=dict(color="#7f8c8d"))
-    fig.add_annotation(x=0.85, y=0.1, text="Conceptual Competitors", showarrow=False, font=dict(color="#6c5ce7"))
+    fig.add_annotation(x=0.85, y=0.9, text="<b>🚨 HIGH RISK</b>", showarrow=False, font=dict(color="#ff4b4b", size=15))
+    fig.add_annotation(x=0.15, y=0.9, text="🔍 Reference", showarrow=False, font=dict(color="#7f8c8d", size=13))
+    fig.add_annotation(x=0.85, y=0.1, text="💡 Potential Competitors", showarrow=False, font=dict(color="#6c5ce7", size=13))
+    fig.add_annotation(x=0.15, y=0.1, text="📗 Distant Context", showarrow=False, font=dict(color="#28a745", size=13))
     
     st.plotly_chart(fig, use_container_width=True)
     
-    # Premium guide
+    # Revised Analysis Guide
     st.info("""
-    💡 **분석 가이드**:
-    - **중앙(🎯)**: 당신의 아이디어입니다. 가까울수록 실질적인 경쟁/침해 리스크가 높습니다.
-    - **우측 상단**: 키워드와 핵심 원리가 모두 유사한 **직적적 침해 위협** 영역입니다.
-    - **우측 하단**: 키워드는 다르지만 기술적 사상이 유사한 **잠재적 경쟁자**입니다. 회피 설계가 필요할 수 있습니다.
+    🧭 **분석 가이드 및 축 설명**:
+    - **X축 (기술적 정렬도)**: 아이디어의 핵심 기술 사상이 검색된 특허와 얼마나 일치하는지 나타냅니다. 1.0에 가까울수록 직설적인 모방이나 동일 기술일 확률이 높습니다.
+    - **Y축 (분석 심도)**: 해당 특허가 다루는 기술의 범위와 복잡도, 그리고 우리 엔진의 유사 판단 근거가 얼마나 탄탄한지를 나타냅니다.
+    
+    **4분면 해석**:
+    1. **우측 상단 (🚨 HIGH RISK)**: 기술 원리가 거의 일치하며 내용도 구체적인 **핵심 위험** 영역입니다.
+    2. **우측 하단 (💡 Potential Competitors)**: 원리는 유사하나 표현이나 기술 수준이 다른 **잠재적 경쟁** 영역입니다. 회피 설계 검토가 필요합니다.
+    3. **좌측 상단 (🔍 Reference)**: 일부 키워드나 구성은 겹치나 기술적 사상이 다른 **단순 참고** 영역입니다.
+    4. **좌측 하단 (📗 Distant Context)**: 관련성은 낮지만 기술 분야가 겹칠 수 있는 **단순 배경 기술**입니다.
     """)
  
